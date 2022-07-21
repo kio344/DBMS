@@ -1,0 +1,89 @@
+DBMS (MySQL 2Day)
+
+ALTER TABLE NewBook MODIFY isbn INTEGER;
+
+CRUD
+
+C : (Create)
+R : (Read)
+U : (Update)
+D : (Delete)
+
+조회 ( 관계 대수 ) - SELECT
+쿼리라고 부르는 SQL의 데이터를 검색하는 문장.
+
+SELECT [ALL| DISTINCT] 검색 속성, .... FROM 테이블명 
+WHERE 검색조건;
+
+ORDER BY 속성명 [ASC | DESC] 
+
+ASC - 오름차순 정렬
+DESC - 내림차순 정렬
+
+DISTINCT -> 중복을 제외한 유일 값
+
+
+WHERE 조건 
+	
+
+null이랑 “”은 다르다.
+
+LIKE(=) “키워드” -> 키워드와 일치하는 것
+LIKE “키워드%” -> 키워드로 시작하는 패턴
+LIKE “%키워드” -> 키워드로 끝나는 패턴
+LIKE “%키워드%” -> 키워드가 포함되는 패턴
+
+_문자 1개
+
+SUM(속성명) -> 합계
+AVG(속성명) -> 평균
+COUNT(속성명) -> 레코드 수 ( 속성의 값이 null 이 아닌 )
+
+MAX -> 최대값
+MIN -> 최소값
+
+관계형 데이터베이스
+
+조인(Join)
+
+부속질의(subquery)
+ -질의문 안에 질의
+
+SELECT ( 부속질의 )
+FROM( 부속질의 )
+WHERE ( 부속질의 )
+
+Customer - custom
+
+Orders - custid
+
+동등 조인 ( 교집합 ) 
+
+
+SELECT c.custid, name, saleprice, bookname
+FROM Customer c, Orders o
+WHERE c.custid = o.custid;
+
+SELECT c.custid, c.name, o.saleprice
+	FROM Customer c
+		INNER JOIN Orders o ON c.custid = o.custid;
+
+SELECT c.cystid, c.name, o.saleprice, b.bookname
+FROM Customer c, Orders o, Book b
+WHERE c.custid = o.custid AND o.bookid = b.bookid;
+
+SELECT c.custid, c, name, o.saleprice, b.bookname
+	FROM Customer c
+		INNER JOIN Orders o ON c.custid = i.custid
+		INNER JOIN Book b ON o.bookid = b.bookid;
+
+외부 조인 (LEFT OUTER JOIN)
+
+SELECT ( 스칼라 부속질의 - 단일값 )
+FROM ( 인라인 부속질의 - 가상의 테이블 )
+WHERE (부속질의 - 상관부속질의 - 조건에 따라서 단일값이 될 수 있고 스칼라가 될 수 있다. ) 
+
+스칼라 -> 단일값
+
+WHERE 
+
