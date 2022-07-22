@@ -1,0 +1,16 @@
+저장프로그램
+1. 프로시저
+	- Book
+
+SET global log_bin_trust_function_creators=ON;
+
+2. 트리거
+데이터 수정, 추가, 삭제 -> 발생하는 이벤트 
+CREATE TRIGGER AfterInsertBook
+	AFTER INSERT ON Book FOR EACH ROW
+
+new -> 새로 추가된 레코드( INSERT)
+old -> 
+
+3. 사용자 정의함수
+
