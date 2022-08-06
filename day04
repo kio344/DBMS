@@ -1,0 +1,82 @@
+WHERE ( 중첩질의 )
+
+1. 스칼라 부속질의
+
+뷰  -> 가상의 테이블
+
+CREATE VIEW 뷰 이름
+AS SELECT
+
+테이블 3개
+
+주문 데이터 + 주문자명 + 구매한 도서 이름
+
+CREATE OR REPLACE VIEW 뷰이름 
+AS … 
+
+
+인덱스 ( Index - 목차 )
+
+클러스터 인덱스
+	- 기본키 (Primary Key)
+
+보조 인덱스
+	- 클러스터 인덱스가 아닌 모든 인덱스
+
+	bookid - 기본키
+	bookname -> 인덱스
+
+	bookname 인덱스 -> 레코드를 찾고 -> 기본키로 찾음.
+
+인덱스 장점 -> 검색이 빠르다 
+인덱스 단점 -> 데이터 추가, 삭제가 되면 재구성이 발생 -> 속도 저하
+
+선택도
+
+남, 여 -> 50%
+
+CREATE INDEX 인덱스 ON 테이블명( 속성1, 속성2 ) 
+
+EXPLAIN
+
+1.85
+
+LIKE “키워드”
+LIKE “키워드%” (키워드로 시작하는 단어)
+
+LIKE “%키워드” (키워드로 끝나는 단어)
+LIKE “%키워드%” (키워드가 포함된 단어) 
+
+
+MySQL
+
+저장프로그램
+- 프로시저 -> 함수형태 
+	(사용법)
+	CREATE PROCEDURE 프로시저명 ( 매개변수 )
+	BEGIN
+		함수가 실행되는 부분
+	END;
+
+SET
+DECLARE
+
+CALL 프로시저 명( … );
+
+DROP PROCEDURE 프로시저명;
+
+0~ 입력받은 수
+-> 짝수만 더하는 프로시저
+
+Orders - saleprice -> 3만원 이상이면 10% 만큼 수수료, 미만이면 5%
+	
+- 트리거 
+
+- 사용자 정의 함수
+
+CREATE FUNCTION 함수명 ( … ) IN만 들어간다!
+
+BEGIN
+
+	RETURN 결과값;
+END;
